@@ -1,0 +1,112 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "palette": {
+    "base": "#1e1e2e",
+    "blue": "#89b4fa",
+    "pink": "#f5c2e7",
+    "lavender": "#b4befe",
+    "green": "#a6e3a1",
+    "peach": "#fab387",
+    "red": "#f38ba8",
+    "yellow": "#f9e2af",
+    "teal": "#94e2d5",
+    "text": "#cdd6f4"
+  },
+  "blocks": [
+    {
+      "alignment": "left",
+      "segments": [
+        {
+          "foreground": "p:green",
+          "background": "transparent",
+          "properties": {
+            "always_enabled": true
+          },
+          "style": "plain",
+          "template": "{{ if .Env.VIRTUAL_ENV }}(\u269b {{ .Env.VIRTUAL_ENV | basename }}) {{ end }}",
+          "type": "text"
+        },
+        {
+          "foreground": "p:blue",
+          "background": "transparent",
+          "style": "plain",
+          "template": " {{ .Name }} ",
+          "type": "shell"
+        },
+        {
+          "foreground": "p:pink",
+          "background": "transparent",
+          "properties": {
+            "folder_icon": "~",
+            "style": "full"
+          },
+          "style": "plain",
+          "template": "{{ .Path }} ",
+          "type": "path"
+        },
+        {
+          "foreground": "p:peach",
+          "background": "transparent",
+          "properties": {
+            "branch_icon": "\ue725 ",
+            "fetch_status": true
+          },
+          "style": "plain",
+          "template": "{{ .HEAD }} {{ if .Working.Changed }}~{{ .Working.String }}{{ end }}{{ if .Staging.Changed }} | {{ .Staging.String }}{{ end }} ",
+          "type": "git"
+        }
+      ],
+      "type": "prompt"
+    },
+    {
+      "alignment": "right",
+      "segments": [
+        {
+          "foreground": "p:green",
+          "background": "transparent",
+          "properties": {
+            "npm_icon": "\ue5fa",
+            "yarn_icon": "\ue6a7"
+          },
+          "style": "plain",
+          "template": " \ue718 {{ .PackageManagerIcon }} {{ .Full }} ",
+          "type": "node"
+        },
+        {
+          "foreground": "p:lavender",
+          "background": "transparent",
+          "style": "plain",
+          "template": " \ue641 {{ .CurrentDate | date .Format }} ",
+          "type": "time"
+        }
+      ],
+      "type": "prompt"
+    },
+    {
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "foreground": "p:text",
+          "background": "transparent",
+          "style": "plain",
+          "template": "\u2570\u2500",
+          "type": "text"
+        },
+        {
+          "foreground": "p:yellow",
+          "background": "transparent",
+          "properties": {
+            "always_enabled": true
+          },
+          "style": "plain",
+          "template": "\u276f ",
+          "type": "status"
+        }
+      ],
+      "type": "prompt"
+    }
+  ],
+  "version": 3
+}
+
